@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parampara Saree Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Marcellus', serif;
+      background: linear-gradient(to right, #fffaf0, #fdeedc);
+      color: #5e3023;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+:root {
+    --text-color: white;
+    /* --bg-color: #080808;
+    --second-bg-color: #13131313;
+    */
+    
+}
+
+html {
+    font-size: 80%;
+}
+
+body {
+    background: white;
+   
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 8% 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
+    backdrop-filter: blur(10px);
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+    color: orange;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #7f2c1f;
+    }
+
+    .score-timer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+      border-bottom: 2px dashed #c08457;
+      padding-bottom: 8px;
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin: 15px 0;
+    }
+
+    .options button {
+      display: block;
+      margin: 8px 0;
+      padding: 12px;
+      width: 100%;
+      background-color: #fef1e6;
+      border: 2px solid #c08457;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .options button:hover {
+      background-color: #fde2c6;
+      transform: scale(1.02);
+      color: #7f2c1f;
+    }
+
+    .result, .info {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 15px;
+      border: 4px solid #e3b27e;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+
+      .question {
+        font-size: 1.2em;
+      }
+
+      .options button {
+        font-size: 0.95em;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+<header class="header">
+        <a href="" class="logo">
+            परंपरा
+            <span>.</span>
+        </a>
+        <div class="hide">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <details>
+                <summary>
+                    <i class="iv fa-solid fa-ellipsis-vertical"></i>
+                </summary>
+                <ul>
+                    <li>
+                        <i class='bx bx-search'></i>
+                        Search
+                    </li>
+                    <li>
+                        <i class='bx bx-heart'></i>
+                        Like
+                    </li>
+                    <li>
+                        <i class='bx bx-cart-alt'></i>
+                        Add to cart
+                    </li>
+                    <li>
+                        <i class='bx bxs-user'></i>
+                        Profile
+                    </li>
+                </ul>
+            </details>
+        </div>
+        <nav class="navbar">
+            <a href="shop.html">Home</a>
+            <a href="shop.html">Products</a>
+            <a href="diary.html">Saree Diary</a>
+            <a href="restyle.html">Restyle Studio</a>  
+            <a href="mini.html">Mini Games</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="icons">
+            <a href="">
+                <i class='bx bx-search'></i>
+            </a>
+            <a href="">
+                <i class='bx bx-heart'></i>
+            </a>
+            <a href="">
+                <i class='bx bx-cart-alt'></i>
+            </a>
+            <a href="">
+                <i class='bx bxs-user'></i>
+            </a>
+        </div>
+    </header>
+
+
+
+  <h1>✨ Parampara Quiz ✨</h1>
+  <div class="score-timer">
+    <div id="score">Score: 0</div>
+    <div id="timer">Time Left: 15s</div>
+  </div>
+  <div class="quiz">
+    <img id="image" src="" alt="Saree Image">
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="info" id="info"></div>
+    <div class="result" id="result"></div>
+  </div>
+  <canvas id="confetti" class="confetti"></canvas>
+
+  <script>
+    const quizData = [
+      {
+        question: "Which Indian state is famous for Kanjeevaram sarees?",
+        options: ["Tamil Nadu", "Punjab", "Assam", "Gujarat"],
+        answer: "Tamil Nadu",
+        image: "q1.avif",
+        info: "Kanjeevaram sarees are rich silk sarees woven in Tamil Nadu and are famous for temple designs."
+      },
+      {
+        question: "Patola sarees are a specialty of which region?",
+        options: ["Odisha", "West Bengal", "Gujarat", "Rajasthan"],
+        answer: "Gujarat",
+        image: "q2.jpg",
+        info: "Patola sarees from Gujarat are known for their intricate double ikat weaving technique."
+      },
+      {
+        question: "Mekhela Chador is a traditional attire of women from which state?",
+        options: ["Assam", "Kerala", "Karnataka", "Maharashtra"],
+        answer: "Assam",
+        image: "q3.jpg",
+        info: "Mekhela Chador is a graceful traditional Assamese attire worn by women."
+      },
+      {
+        question: "Which fabric is traditionally used in Banarasi sarees?",
+        options: ["Cotton", "Silk", "Linen", "Jute"],
+        answer: "Silk",
+        image: "q4.jpg",
+        info: "Banarasi sarees are crafted from fine silk and are famous for gold and silver brocade."
+      },
+      {
+        question: "Which saree is known for its unique mirror work?",
+        options: ["Paithani", "Bandhani", "Chikankari", "Kasavu"],
+        answer: "Bandhani",
+        image: "q5.jpg",
+        info: "Bandhani sarees, known for tie-dye and mirror work, are popular in Rajasthan and Gujarat."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 15;
+
+    function loadQuestion() {
+      clearInterval(timer);
+      timeLeft = 15;
+      document.getElementById('timer').textContent = Time Left: ${timeLeft}s;
+      timer = setInterval(updateTimer, 1000);
+
+      const q = quizData[currentQuestion];
+      document.getElementById('question').textContent = q.question;
+      document.getElementById('image').src = q.image;
+      document.getElementById('info').textContent = '';
+      document.getElementById('result').textContent = '';
+
+      const optionsContainer = document.getElementById('options');
+      optionsContainer.innerHTML = '';
+      q.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(option);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function updateTimer() {
+      timeLeft--;
+      document.getElementById('timer').textContent = Time Left: ${timeLeft}s;
+      if (timeLeft === 0) {
+        checkAnswer(null);
+      }
+    }
+
+    function checkAnswer(selected) {
+      clearInterval(timer);
+      const correct = quizData[currentQuestion].answer;
+      const info = quizData[currentQuestion].info;
+
+      if (selected === correct) {
+        score++;
+        document.getElementById('result').textContent = "✅ Correct!";
+      } else {
+        document.getElementById('result').textContent = ❌ Wrong! Correct: ${correct};
+      }
+
+      document.getElementById('score').textContent = Score: ${score};
+      document.getElementById('info').textContent = info;
+
+      currentQuestion++;
+      setTimeout(() => {
+        if (currentQuestion < quizData.length) {
+          loadQuestion();
+        } else {
+          showFinalResult();
+        }
+      }, 3000);
+    }
+
+    function showFinalResult() {
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('options').style.display = 'none';
+      document.getElementById('image').style.display = 'none';
+      document.getElementById('timer').style.display = 'none';
+      document.getElementById('info').style.display = 'none';
+      if (score >= quizData.length * 0.7) {
+        document.getElementById('result').textContent = 🎉 Congratulations! You scored ${score}/${quizData.length};
+        launchConfetti();
+      } else {
+        document.getElementById('result').textContent = You scored ${score}/${quizData.length}. Try again to improve!;
+      }
+    }
+
+    function launchConfetti() {
+      const canvas = document.getElementById('confetti');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const confetti = Array.from({ length: 200 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 20 + 10,
+        color: hsl(${Math.random() * 360}, 100%, 70%),
+        tilt: Math.random() * 10 - 10,
+        tiltAngle: 0,
+        tiltAngleIncrement: Math.random() * 0.05 + 0.01
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach(p => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.d / 2);
+          ctx.stroke();
+        });
+        update();
+        requestAnimationFrame(draw);
+      }
+
+      function update() {
+        confetti.forEach(p => {
+          p.tiltAngle += p.tiltAngleIncrement;
+          p.y += Math.cos(p.d / 10) + 2;
+          p.x += Math.sin(p.tiltAngle);
+          p.tilt = Math.sin(p.tiltAngle) * 15;
+          if (p.y > canvas.height) {
+            p.y = -20;
+            p.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      draw();
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

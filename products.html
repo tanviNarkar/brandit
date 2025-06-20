@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parampara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--text-color);
+    width: 50px;
+}
+
+:root {
+    --text-color: white;
+    /* --bg-color: #080808;
+    --second-bg-color: #13131313;
+    */
+    --main-color: orange;
+}
+
+html {
+    font-size: 60%;
+}
+
+body {
+    background: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 8% 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
+    backdrop-filter: blur(10px);
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+    color: orange;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    border-bottom: 3px solid var(--main-color);
+}
+
+.hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+    cursor: pointer;
+}
+
+.iv {
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+details summary {
+    list-style: none;
+    width: max-content;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+details {
+    position: relative;
+    z-index: 100;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+details ul {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #000;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 10px 50px var(--text-color);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+details ul li {
+    z-index: 100;
+    width: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: 48px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    text-align: left;
+    transition: 0.3s ease;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+details ul li i {
+    color: var(--main-color);
+}
+
+details ul li:hover {
+    background-color: white;
+    color: #000;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons a {
+    text-decoration: none;
+}
+
+.icons a i {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-left: 1.3rem;
+    transition: 0.3s ease;
+}
+
+.icons a i:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+    color: var(--main-color);
+}
+
+
+
+@media (max-width: 1285px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 2rem 3%;
+    }
+
+    .section {
+        min-height: 100vh;
+        padding: 10rem 3% 2rem;
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .iv {
+        display: block;
+    }
+
+    details {
+        display: block;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        height: 100vh;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1.7rem;
+        margin: 3rem 0;
+        color: white;
+    }
+}
+
+
+.store-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.wishlist-icon,
+.cart-icon {
+  position: relative;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.wishlist-icon span,
+.cart-icon span {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+/* PRODUCT LISTING */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 100px;
+}
+
+@media (max-width: 992px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-card {
+  position: relative;
+  background: #fff0f0;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  max-height: 320px;
+  background-color: #fff;
+}
+
+/* DISCOUNT RIBBON */
+.discount-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* HEART ICON */
+.card-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card-heart:hover {
+  transform: scale(1.2);
+}
+
+.card-heart.active {
+  background-color: #f7816d;
+  color: white;
+}
+
+/* PRICE STYLES */
+.price {
+  margin: 5px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 6px;
+}
+
+/* ACTION BUTTONS */
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product-actions button,
+.view-more-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #FFA600;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.product-actions button:hover,
+.view-more-btn:hover {
+  background-color: #FFA600;
+}
+
+/* CART DRAWER */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.cart-img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.cart-details p {
+  margin: 5px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0;
+}
+
+.quantity-controls button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: #eee;
+  cursor: pointer;
+}
+
+.cart-footer {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.checkout-btn {
+  background: #f7816d;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.discount {
+  color: #e05b5b;
+  font-size: 14px;
+}
+
+.note {
+  font-size: 12px;
+  color: gray;
+  margin-top: 5px;
+}
+
+/* REMOVE BUTTON */
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* WISHLIST DRAWER */
+.wishlist-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 999;
+}
+
+.wishlist-drawer.open {
+  right: 0;
+}
+
+/* RESPONSIVE DRAWERS */
+@media screen and (max-width: 400px) {
+  .cart-drawer,
+  .wishlist-drawer {
+    width: 100%;
+  }
+}
+
+
+/* FOOOOOOOOOOOOOOOOOOOOOOOTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+
+footer {
+    background-color: var(--text-color);
+    padding: 8% 0;
+    padding-bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+}
+
+footer .logoHead {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 20px;
+}
+
+footer .logoHead h1 {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+}
+
+footer .logoHead h1 span {
+    font-weight: 800;
+    font-size: 50px;
+    color: var(--main-color);
+}
+
+footer .footerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3% 8%;
+}
+
+.footerFlex div h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footerFlex div a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.footerFlex div a:hover {
+    color: var(--main-color);
+    transition: .3s ease;
+}
+
+.copyrightSec {
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 0;
+    word-wrap: 100%;
+    padding: 1.5% 8%;
+    background: var(--main-color);
+}
+
+.copyrightSec p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.copyrightSec .socialMedia {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.copyrightSec .socialMedia a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    background: var(--text-color);
+    padding: 5px 5px;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--main-color);
+    transition: .3s ease;
+    display: grid;
+    place-items: center;
+    border: 1px solid transparent;
+}
+
+.copyrightSec .socialMedia a:hover {
+    color: var(--text-color);
+    transition: .3s ease;
+    border: 1px solid var(--text-color);
+    background: var(--main-color);
+}
+
+.socialMedia a i {
+    font-size: 2rem;
+}
+
+@media (max-width: 899px) {
+    .footerFlex {
+        flex-direction: column;
+        gap: 30px 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footerFlex div {
+        width: 100%;
+    }
+
+    .copyrightSec {
+        padding: 20px 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px 0;
+        padding: 2% 8%;
+        width: 100%;
+    }
+
+    .copyrightSec .socialMedia {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+    <header class="header">
+        <a href="" class="logo">
+            परंपरा
+            <span>.</span>
+        </a>
+        <div class="hide">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <details>
+                <summary>
+                    <i class="iv fa-solid fa-ellipsis-vertical"></i>
+                </summary>
+                <ul>
+                    <li>
+                        <i class='bx bx-search'></i>
+                        Search
+                    </li>
+                    <li>
+                        <i class='bx bx-heart'></i>
+                        Like
+                    </li>
+                    <li>
+                        <i class='bx bx-cart-alt'></i>
+                        Add to cart
+                    </li>
+                    <li>
+                        <i class='bx bxs-user'></i>
+                        Profile
+                    </li>
+                </ul>
+            </details>
+        </div>
+        <nav class="navbar">
+            <a href="shop.html">Home</a>
+            <a href="products.html"class="active">Products</a>
+            <a href="#saree-diary">Saree Diary</a>
+            <a href="#restyle-studio">Restyle Studio</a>  
+            <a href="#mini-games">Mini Games</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    <div class="header-icons">
+      <div class="wishlist-icon" onclick="openWishlist()">❤️ <span id="wishlist-count">0</span></div>
+      <div class="cart-icon" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
+    </div>
+  </header>
+    <main class="product-list">
+
+  <!-- Product 1 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Orange Pink Zariwork Soft Silk Saree', 1995, 's1.png')">🤍</span>
+    <img src="s1.png" alt="Pink Zariwork Saree">
+    <h3>Orange Pink Zariwork Soft Silk Saree</h3>
+    <p><span class="old-price">₹3,990</span> <span class="price">₹1,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Orange Pink Zariwork Soft Silk Saree', 1995, 's1.png')">Add to Cart</button>
+      <button onclick="viewMore('Orange Pink Zariwork Soft Silk Saree', 3990, 1995, 's1.png', 'Soft Silk– Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Royal Purple & Orange Banarasi Saree', 1995, 's3.png')">🤍</span>
+    <img src="s2.png" alt="Pista Green Saree">
+    <h3>Royal Purple & Orange Banarasi Saree</h3>
+    <p><span class="old-price">₹3,990</span> <span class="price">₹2,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Royal Purple & Orange Banarasi Saree', 1995, 's2.png')">Add to Cart</button>
+      <button onclick="viewMore('Royal Purple & Orange Banarasi Saree', 3990, 1995, 's2.png', 'Satin – Dry Clean Only', 'purple_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Maroon Stonework Satin Saree', 1995, 's3.png')">🤍</span>
+    <img src="s3.png" alt="Saree 1">
+    <h3>Maroon Stonework Satin Saree</h3>
+    <p><span class="old-price">₹3,990</span> <span class="price">₹1,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Maroon Stonework Satin Saree', 1995, 's3.png')">Add to Cart</button>
+      <button onclick="viewMore('Maroon Stonework Satin Saree', 3990, 1995, 's3.png', 'Satin – Dry Clean Only', 'Maroon_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Fuchsia Pink Banarasi Saree', 1995, 's4.png')">🤍</span>
+    <img src="s4.png" alt="Saree 2">
+    <h3>Fuchsia Pink Banarasi Saree</h3>
+    <p><span class="old-price">₹4,990</span> <span class="price">₹3,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Fuchsia Pink Banarasi Saree', 1995, 's4.png')">Add to Cart</button>
+      <button onclick="viewMore('Fuchsia Pink Banarasi Saree', 3990, 1995, 's4.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card">
+    <span class="discount-tag">60% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Red & Gold Traditional  Kanchipuram Silk Saree ', 1399, 's5.png')">🤍</span>
+    <img src="s5.png" alt="Lavender Net Saree">
+    <h3>Red & Gold Traditional  Kanchipuram Silk Saree </h3>
+    <p><span class="old-price">₹6,499</span> <span class="price">₹5,399</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Red & Gold Traditional  Kanchipuram Silk Saree ', 1399, 'mages/s5.png')">Add to Cart</button>
+      <button onclick="viewMore('Red & Gold Traditional  Kanchipuram Silk Saree ', 3990, 1995, 's5.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-card">
+    <span class="discount-tag">40% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Royal Blue Banarasi Saree', 2395, 's6.png')">🤍</span>
+    <img src="s6.png" alt="Royal Blue Saree">
+    <h3>Royal Blue Banarasi Saree</h3>
+    <p><span class="old-price">₹7,995</span> <span class="price">₹5,395</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Royal Blue Banarasi Saree', 2395, 's6.png')">Add to Cart</button>
+      <button onclick="viewMore('Light Orange Stonework Satin Saree', 3990, 1995, 's6.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, ' Orange Silk with Temple Border', 1595, 's7.png')">🤍</span>
+    <img src="s7.png" alt="Mint Green Saree">
+    <h3> Orange Silk with Temple Border</h3>
+    <p><span class="old-price">₹4,190</span> <span class="price">₹2,595</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart(' Orange Silk with Temple Border', 1595, 's7.png')">Add to Cart</button>
+      <button onclick="viewMore(' Orange Silk with Temple Border', 3990, 1995, 's7.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="product-card">
+    <span class="discount-tag">45% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Rose Pink Soft Silk Saree', 2095, 's8.png')">🤍</span>
+    <img src="s8.png" alt="Rose Pink Saree">
+    <h3>Rose Pink Soft Silk Saree</h3>
+    <p><span class="old-price">₹3,799</span> <span class="price">₹2,095</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Rose Pink Soft Silk Saree', 2095, 's8.png')">Add to Cart</button>
+      <button onclick="viewMore('Light Orange Stonework Satin Saree', 3990, 1995, 's8.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+    </div>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Red Banarasi Silk Saree with Floral Zari Work', 1995, 's9.png')">🤍</span>
+    <img src="s9.png" alt="Pink Zariwork Saree">
+    <h3>Red Banarasi Silk Saree with Floral Zari Work</h3>
+    <p><span class="old-price">₹3,990</span> <span class="price">₹1,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Red Banarasi Silk Saree with Floral Zari Work', 1995, 's9.png')">Add to Cart</button>
+      <button onclick="viewMore('Red Banarasi Silk Saree with Floral Zari Work', 3990, 1995, 's9.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 10 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Magenta Pink Saree with Cream Zari Motifs', 1995, 's10.png')">🤍</span>
+    <img src="s10.png" alt="Pista Green Saree">
+    <h3>Magenta Pink Saree with Cream Zari Motifs</h3>
+    <p><span class="old-price">₹6,990</span> <span class="price">₹4,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Magenta Pink Saree with Cream Zari Motifs', 1995, 's10.png')">Add to Cart</button>
+      <button onclick="viewMore('Magenta Pink Saree with Cream Zari Motifs', 3990, 1995, 's10.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 11 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Rust Orange Nauvari Saree', 1995, 's11.png')">🤍</span>
+    <img src="s11.png" alt="Saree 1">
+    <h3>Rust Orange Nauvari Saree</h3>
+    <p><span class="old-price">₹3,990</span> <span class="price">₹1,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Rust Orange Nauvari Saree', 1995, 's11.png')">Add to Cart</button>
+      <button onclick="viewMore('Rust Orange Nauvari Saree', 3990, 1995, 's11.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 12 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Emerald Green Kanjivaram-style Saree', 1995, 's12.png')">🤍</span>
+    <img src="s12.png" alt="Saree 2">
+    <h3>Emerald Green Kanjivaram-style Saree</h3>
+    <p><span class="old-price">₹6,990</span> <span class="price">₹4,995</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Emerald Green Kanjivaram-style Saree', 1995, 's12.png')">Add to Cart</button>
+      <button onclick="viewMore('Emerald Green Kanjivaram-style Saree', 3990, 1995, 's12.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 13 -->
+  <div class="product-card">
+    <span class="discount-tag">60% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Purple and Green Kanjivaram Saree with Peacock Pallu', 1399, 's13.png')">🤍</span>
+    <img src="s13.png" alt="Lavender Net Saree">
+    <h3>Purple and Green Kanjivaram Saree with Peacock Pallu</h3>
+    <p><span class="old-price">₹7,499</span> <span class="price">₹5,399</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Purple and Green Kanjivaram Saree with Peacock Pallu', 1399, 's13.png')">Add to Cart</button>
+      <button onclick="viewMore('Purple and Green Kanjivaram Saree with Peacock Pallu', 3990, 1995, 's13.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 14 -->
+  <div class="product-card">
+    <span class="discount-tag">40% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Yellow and Purple Silk Saree', 2395, 's14.png')">🤍</span>
+    <img src="s14.png" alt="Royal Blue Saree">
+    <h3>Yellow and Purple Silk Saree</h3>
+    <p><span class="old-price">₹6,995</span> <span class="price">₹3,395</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Yellow and Purple Silk Saree', 2395, 's14.png')">Add to Cart</button>
+      <button onclick="viewMore('Yellow and Purple Silk Saree', 3990, 1995, 's14.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 15 -->
+  <div class="product-card">
+    <span class="discount-tag">50% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Pink Banarasi Saree with Zari Work', 1595, 's15.png')">🤍</span>
+    <img src="s15.png" alt="Mint Green Saree">
+    <h3>Pink Banarasi Saree with Zari Work</h3>
+    <p><span class="old-price">₹3,190</span> <span class="price">₹1,595</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Pink Banarasi Saree with Zari Work', 1595, 's15.png')">Add to Cart</button>
+      <button onclick="viewMore('Pink Banarasi Saree with Zari Work', 3990, 1995, 'is15.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+
+    </div>
+  </div>
+
+  <!-- Product 16 -->
+  <div class="product-card">
+    <span class="discount-tag">45% OFF</span>
+    <span class="card-heart" onclick="toggleWishlist(this, 'Yellow-Orange Saree with Pink Blouse ', 2095, 's16.png')">🤍</span>
+    <img src="s16.png" alt="Rose Pink Saree">
+    <h3>Yellow-Orange Saree with Pink Blouse </h3>
+    <p><span class="old-price">₹3,799</span> <span class="price">₹2,095</span></p>
+    <div class="product-actions">
+      <button onclick="addToCart('Yellow-Orange Saree with Pink Blouse ', 2095, 's16.png')">Add to Cart</button>
+      <button onclick="viewMore('Yellow-Orange Saree with Pink Blouse ', 3990, 1995, 's17.png', 'Satin – Dry Clean Only', 'Orange_245GH')">View More</button>
+    </div>
+  </div>
+
+</main>
+
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h2>Cart</h2>
+      <span onclick="closeCart()" class="close-btn">&times;</span>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-footer">
+      <p>Subtotal: <span id="subtotal">₹0</span></p>
+      <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div id="wishlistDrawer" class="wishlist-drawer">
+    <div class="cart-header">
+      <h2>Wishlist</h2>
+      <span onclick="closeWishlist()" class="close-btn">&times;</span>
+    </div>
+    <div id="wishlistItems"></div>
+  </div>
+
+  <footer>
+        <div class="logoHead">
+            <h1>
+                परंपरा
+                <span>.</span>
+            </h1>
+        </div>
+        <div class="footerFlex">
+            <div>
+                <h3>About</h3>
+                <a href="about.html">Our Company</a>
+                <a href="about.html">Our Story</a>
+            </div>
+            <div>
+                <h3>Information</h3>
+                <a href="">Privacy Policy</a>
+                <a href="">Terms & Conditions</a>
+                <a href="shop.html">Return</a>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <a href="">Contact Us</a>
+                <a href="">Help</a>
+                <a href="shop.html#faq">FAQ</a>
+            </div>
+        </div>
+        <div class="copyrightSec">
+            <p>Copyright&copy;2025 परंपरा. All Rights Reserved.</p>
+            <div class="socialMedia">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // -------------------- CART --------------------
+let cart = [];
+
+function openCart() {
+  document.getElementById("cartDrawer").classList.add("open");
+  renderCart();
+}
+
+function closeCart() {
+  document.getElementById("cartDrawer").classList.remove("open");
+}
+
+function addToCart(name, price, img) {
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ name, price, img, quantity: 1 });
+  }
+  updateCartCount();
+  renderCart();
+  openCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartCount();
+  renderCart();
+}
+
+function updateQuantity(index, change) {
+  cart[index].quantity += change;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  updateCartCount();
+  renderCart();
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+
+  let subtotal = 0;
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    cartItem.innerHTML = `
+      <img src="${item.img}" class="cart-img" alt="${item.name}">
+      <div class="cart-details">
+        <p><strong>${item.name}</strong></p>
+        <p>Size: OneSize</p>
+        <div class="quantity-controls">
+          <button onclick="updateQuantity(${index}, -1)">-</button>
+          <span>${item.quantity}</span>
+          <button onclick="updateQuantity(${index}, 1)">+</button>
+        </div>
+        <p>₹${itemTotal}</p>
+        <button class="remove-btn" onclick="removeFromCart(${index})">🗑️</button>
+      </div>
+    `;
+    cartItems.appendChild(cartItem);
+  });
+
+  document.getElementById("subtotal").textContent = `₹${subtotal}`;
+}
+
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").textContent = totalItems;
+}
+
+// -------------------- WISHLIST --------------------
+let wishlist = [];
+
+function openWishlist() {
+  document.getElementById("wishlistDrawer").classList.add("open");
+  renderWishlist();
+}
+
+function closeWishlist() {
+  document.getElementById("wishlistDrawer").classList.remove("open");
+}
+
+function addToWishlist(name, price, img) {
+  const exists = wishlist.find(item => item.name === name);
+  if (!exists) {
+    wishlist.push({ name, price, img });
+    updateWishlistCount();
+    renderWishlist();
+  }
+}
+
+function removeFromWishlist(index) {
+  const itemName = wishlist[index].name;
+  wishlist.splice(index, 1);
+  renderWishlist();
+  updateWishlistCount();
+  updateHeartIcon(itemName, false); // Unfill the heart icon
+}
+
+function renderWishlist() {
+  const wishlistItems = document.getElementById("wishlistItems");
+  wishlistItems.innerHTML = "";
+
+  wishlist.forEach((item, index) => {
+    const wishItem = document.createElement("div");
+    wishItem.classList.add("cart-item");
+
+    wishItem.innerHTML = `
+      <img src="${item.img}" class="cart-img" alt="${item.name}">
+      <div class="cart-details">
+        <p><strong>${item.name}</strong></p>
+        <p>₹${item.price}</p>
+        <button class="remove-btn" onclick="removeFromWishlist(${index})">🗑️</button>
+      </div>
+    `;
+    wishlistItems.appendChild(wishItem);
+  });
+}
+
+function updateWishlistCount() {
+  const count = wishlist.length;
+  const badge = document.getElementById("wishlist-count");
+  if (badge) badge.textContent = count;
+}
+
+// -------------------- TOGGLE HEART STATE --------------------
+function toggleWishlist(el, name, price, img) {
+  const exists = wishlist.find(item => item.name === name);
+  if (exists) {
+    wishlist = wishlist.filter(item => item.name !== name);
+    el.classList.remove("active");
+  } else {
+    wishlist.push({ name, price, img });
+    el.classList.add("active");
+  }
+  updateWishlistCount();
+  renderWishlist();
+}
+
+// Helper: If removed from drawer, also unfill matching heart
+function updateHeartIcon(productName, filled) {
+  const hearts = document.querySelectorAll(".card-heart");
+  hearts.forEach(heart => {
+    if (heart.getAttribute("onclick")?.includes(productName)) {
+      heart.classList.toggle("active", filled);
+    }
+  });
+}
+
+function viewMore(name, oldPrice, price, imageUrl, material, productCode) {
+  const productDetails = {
+    name,
+    oldPrice,
+    price,
+    imageUrl,
+    material,
+    productCode
+  };
+  localStorage.setItem('selectedProduct', JSON.stringify(productDetails));
+  window.location.href = 'saree-detail.php';
+}
+
+function saveProductData(name, price, oldPrice, imageUrl, material, productCode) {
+  const selectedProduct = {
+    name: name,
+    price: price,
+    oldPrice: oldPrice,
+    imageUrl: imageUrl,
+    material: material,
+    productCode: productCode
+  };
+  localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+    </script>
+    </body>
+    </html>

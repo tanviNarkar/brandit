@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parampara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--text-color);
+    width: 50px;
+}
+
+:root {
+    --text-color: white;
+    /* --bg-color: #080808;
+    --second-bg-color: #13131313;
+    */
+    --main-color: orange;
+}
+
+html {
+    font-size: 60%;
+}
+
+body {
+    background: #161616;
+    background: url('bg2.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 8% 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
+    backdrop-filter: blur(10px);
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+    color: orange;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    border-bottom: 3px solid var(--main-color);
+}
+
+.hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+    cursor: pointer;
+}
+
+.iv {
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+details summary {
+    list-style: none;
+    width: max-content;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+details {
+    position: relative;
+    z-index: 100;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+details ul {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #000;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 10px 50px var(--text-color);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+details ul li {
+    z-index: 100;
+    width: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: 48px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    text-align: left;
+    transition: 0.3s ease;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+details ul li i {
+    color: var(--main-color);
+}
+
+details ul li:hover {
+    background-color: white;
+    color: #000;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons a {
+    text-decoration: none;
+}
+
+.icons a i {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-left: 1.3rem;
+    transition: 0.3s ease;
+}
+
+.icons a i:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+    color: var(--main-color);
+}
+
+
+
+@media (max-width: 1285px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 2rem 3%;
+    }
+
+    .section {
+        min-height: 100vh;
+        padding: 10rem 3% 2rem;
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .iv {
+        display: block;
+    }
+
+    details {
+        display: block;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        height: 100vh;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1.7rem;
+        margin: 3rem 0;
+        color: white;
+    }
+}
+
+
+
+
+
+
+/* FOOOOOOOOOOOOOOOOOOOOOOOTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+
+footer {
+    background-color: var(--text-color);
+    padding: 8% 0;
+    padding-bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+}
+
+footer .logoHead {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 20px;
+}
+
+footer .logoHead h1 {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+}
+
+footer .logoHead h1 span {
+    font-weight: 800;
+    font-size: 50px;
+    color: var(--main-color);
+}
+
+footer .footerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3% 8%;
+}
+
+.footerFlex div h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footerFlex div a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.footerFlex div a:hover {
+    color: var(--main-color);
+    transition: .3s ease;
+}
+
+.copyrightSec {
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 0;
+    word-wrap: 100%;
+    padding: 1.5% 8%;
+    background: var(--main-color);
+}
+
+.copyrightSec p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.copyrightSec .socialMedia {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.copyrightSec .socialMedia a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    background: var(--text-color);
+    padding: 5px 5px;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--main-color);
+    transition: .3s ease;
+    display: grid;
+    place-items: center;
+    border: 1px solid transparent;
+}
+
+.copyrightSec .socialMedia a:hover {
+    color: var(--text-color);
+    transition: .3s ease;
+    border: 1px solid var(--text-color);
+    background: var(--main-color);
+}
+
+.socialMedia a i {
+    font-size: 2rem;
+}
+
+@media (max-width: 899px) {
+    .footerFlex {
+        flex-direction: column;
+        gap: 30px 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footerFlex div {
+        width: 100%;
+    }
+
+    .copyrightSec {
+        padding: 20px 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px 0;
+        padding: 2% 8%;
+        width: 100%;
+    }
+
+    .copyrightSec .socialMedia {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.about {
+    background-color: var(--text-color);
+    padding: 0% 0%;
+    padding-bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+    min-height: 100vh;
+}
+
+.about .aboutbg {
+    /* background-image: url('contactbg.jpeg'); */
+    background: url('bandhani.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30vh;
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.about .aboutbg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.aboutbg div {
+    position: relative;
+    padding: 0 5%;
+    z-index: 1000;
+}
+
+.aboutbg div h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.aboutUs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5% 0;
+}
+
+.aboutUs .aboutText h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aboutImg {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.aboutImg img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.storySection {
+    min-height: 100vh;
+    padding: 2% 7%;
+    padding-bottom: 3%;
+    background: var(--text-color);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.headSec {
+    padding: 2% 7%;
+}
+
+.headSec h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.headSec p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sectFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px 0;
+    padding: 2% 7%;
+    width: 100%;
+    margin: 20px;
+}
+
+.sectFlex .storyImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease;
+    cursor: pointer;
+    z-index: 1000;
+    border: 50px 0 0;
+}
+
+.storyImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* box-shadow: 0 0 10px var(--main-color); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: .3s ease;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.sectFlex .storyText {
+    width: 100%;
+    padding: 3%;
+}
+
+.storyText h3 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.storyText p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 991px) {
+    .sectFlex {
+        flex-direction: column;
+        gap: 20px 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3% 0%;
+        /* padding-right: 5%; */
+    }
+
+    .storySection {
+        padding: 2% 0%;
+        padding-bottom: 3%;
+        padding-right: 7%;
+    }
+
+    .sectFlex .storyImg {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+.teamSection {
+    padding: 2% 7%;
+    padding-bottom: 3%;
+    background: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.teamFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 30px;
+    padding: 2% 7%;
+    width: 100%;
+}
+
+.teamFlex .teamMember {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease;
+    cursor: pointer;
+    z-index: 1000;
+    border: 50px 0 0;
+    background-color: var(--main-color);
+    position: relative;
+}
+
+.teamMember img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* box-shadow: 0 0 10px var(--main-color); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: .3s ease;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.data {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+}
+
+.teamMember:hover .data {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.teamMember:hover img {
+    transform: scale(1.1);
+    transition: .3s ease;
+}
+
+.data div {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translateX(-50%);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* flex-direction: column; */
+    z-index: 1000;
+    text-align: center;
+    transition: bottom .3s ease,
+        left .3s ease;
+}
+
+.data h3 {
+    /* position: absolute; */
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.data p {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--main-color);
+}
+
+.data div a {
+    text-decoration: none;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    padding: 10px 10px 5px 10px;
+    margin-top: 20px;
+    margin-right: 10px;
+    text-align: center;
+    place-items: center;
+}
+
+.data div a:hover {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: 1px solid var(--main-color);
+    transition: 0.3s ease;
+}
+
+.data div a i {
+    font-size: 1.7rem;
+}
+
+.teamMember:hover .data div {
+    bottom: 20%;
+    left: 50%;
+    transition: top .3s ease,
+        left .3s ease;
+}
+
+@media (max-width: 1200px) {
+    .teamFlex {
+        flex-direction: column;
+        gap: 30px 0;
+        padding: 3% 0%;
+        /* padding-right: 5%; */
+    }
+
+    .teamSection {
+        padding: 2% 0%;
+        padding-bottom: 3%;
+        /* padding-right: 7%; */
+    }
+
+    .teamFlex .teamMember {
+        width: 90%;
+        /* margin: auto; */
+    }
+
+    .teamMember {
+        /* height: 300px; */
+        height: 100%;
+    }
+}
+
+
+
+
+
+
+/* NEWLSTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+
+.newsLetterSection {
+    min-height: 100vh;
+    background-color: var(--text-color);
+    /* padding: 8% 8%; */
+    /* padding-bottom: 3%; */
+    padding-left: 8%;
+    padding-right: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.newsFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px 0;
+    flex-wrap: wrap;
+    background: #cccccc48;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.newsFlex div h1 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.newsFlex div p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.newsFlex div form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: var(--text-color);
+    border-radius: 30px;
+    padding: 10px 20px;
+    gap: 10px;
+    position: relative;
+}
+
+.newsFlex div form div i {
+    position: absolute;
+    left: 10px;
+    background-color: var(--main-color);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.newsFlex div form div input {
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+}
+
+.newsFlex div form button {
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.newsFlex div form button:hover {
+    transition: 0.3s ease;
+    background-color: var(--text-color);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.newsFlex div img {
+    border-radius: 10px;
+    height: 100%;
+    /* width: 100%; */
+    height: 300px;
+    width: 450px;
+}
+
+@media (max-width: 1200px) {
+
+    .newsFlex .newsContent,
+    .newsFlex .newsImg {
+        width: 100%;
+    }
+
+    .newsFlex .newsImg img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .newsLetterSection {
+        padding-top: 5%;
+        padding-bottom: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsFlex div h1 {
+        font-size: 3rem;
+    }
+
+    .newsFlex div form button {
+        display: none;
+    }
+
+    .on {
+        display: block !important;
+    }
+
+    .newsFlex div form div i {
+        position: absolute;
+        left: 10px;
+        background-color: var(--main-color);
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        color: var(--text-color);
+    }
+
+    .newsFlex div form div input {
+        padding: 10px 30px;
+        border: none;
+        width: 100%;
+        outline: none;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+
+    <header class="header">
+        <a href="" class="logo">
+            परंपरा
+            <span>.</span>
+        </a>
+        <div class="hide">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <details>
+                <summary>
+                    <i class="iv fa-solid fa-ellipsis-vertical"></i>
+                </summary>
+                <ul>
+                    <li>
+                        <i class='bx bx-search'></i>
+                        Search
+                    </li>
+                    <li>
+                        <i class='bx bx-heart'></i>
+                        Like
+                    </li>
+                    <li>
+                        <i class='bx bx-cart-alt'></i>
+                        Add to cart
+                    </li>
+                    <li>
+                        <i class='bx bxs-user'></i>
+                        Profile
+                    </li>
+                </ul>
+            </details>
+        </div>
+        <nav class="navbar">
+            <a href="shop.html">Home</a>
+            <a href="shop.html">Products</a>
+            <a href="#saree-diary">Saree Diary</a>
+            <a href="#restyle-studio">Restyle Studio</a>  
+            <a href="#mini-games">Mini Games</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="icons">
+            <a href="">
+                <i class='bx bx-search'></i>
+            </a>
+            <a href="">
+                <i class='bx bx-heart'></i>
+            </a>
+            <a href="">
+                <i class='bx bx-cart-alt'></i>
+            </a>
+            <a href="">
+                <i class='bx bxs-user'></i>
+            </a>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="about">
+            <div class="aboutbg">
+                <div>
+                    <h1>About Us</h1>
+                </div>
+            </div>
+
+            <div class="aboutUs">
+                <div class="aboutText">
+                    <h2>Discover परंपरा -
+                        <br>
+                        Where Heritage Meets Style
+                    </h2>
+                </div>
+                <div class="aboutImg">
+                    <img src="newsletterimg.jpeg" alt="About Us">
+                </div>
+            </div>
+        </section>
+
+        <section class="storySection">
+            <div class="headSec">
+                <h2>Our Challenging Story</h2>
+                <p>
+                    At परंपरा, we set out to do more than just sell sarees — we aimed to revive emotions, honor tradition, and empower modern draping. The road wasn’t easy, but every twist was woven into our fabric.
+                </p>
+            </div>
+            <div class="sectFlex">
+                <div class="storyImg">
+                    <img src="story1.jpeg" alt="Story 1">
+                </div>
+                <div class="storyText">
+                    <h3>The Beginning</h3>
+                    <p>
+                        What started as a love for heirloom sarees soon turned into a mission — to give them a voice and value in the digital age. From sketchbooks to wireframes, our story began at the edge of nostalgia and need.
+                    </p>
+                </div>
+            </div>
+
+            <div class="sectFlex">
+                <div class="storyText">
+                    <h3>Innovation & Design</h3>
+                    <p>
+                        We asked: What if you could design your own saree? What if culture could be interactive?
+And so we created experiences like Saree Diary, ReStyle Studio, and Design Your Saree — blending tradition with technology.
+                    </p>
+                </div>
+                <div class="storyImg">
+                    <img src="story2.jpeg" alt="Story 2">
+                </div>
+            </div>
+
+
+            <div class="sectFlex">
+                <div class="storyImg">
+                    <img src="story3.jpeg" alt="Story 3">
+                </div>
+                <div class="storyText">
+                    <h3>Success Stories</h3>
+                    <p>
+                        We’ve helped users preserve memories, upcycle tradition, and fall in love with sarees all over again. From fashion students to mothers, everyone found a piece of themselves in परंपरा.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="sectFlex">
+                <div class="storyText">
+                    <h3>Careers</h3>
+                    <p>
+                        We don’t just build features — we build belonging.
+Passionate about culture, design, or code? You belong here.
+(Even if you don’t wear sarees — yet!)
+                    </p>
+                </div>
+                <div class="storyImg">
+                    <img src="story4.jpeg" alt="Story 4">
+                </div>
+            </div>
+            <div class="sectFlex">
+                <div class="storyImg">
+                    <img src="story5.jpeg" alt="Story 5">
+                </div>
+                <div class="storyText">
+                    <h3>Looking Ahead</h3>
+                    <p>
+                        Our future? Marathi voice search, AI-based saree suggestions, and bringing Indian weaves to a global runway.
+Because परंपरा is more than a name — it’s a movement.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="teamSection">
+            <div class="headSec">
+                <h2>Meet Our Team</h2>
+            </div>
+            <div class="teamFlex">
+                <div class="teamMember">
+                    <img src="team1.jpeg" alt="Team Member 1">
+                    <div class="data">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p>Founder & CEO</p>
+                        </div>
+                        <div>
+                            <a href="">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="teamMember">
+                    <img src="team2.jpeg" alt="Team Member 2">
+                    <div class="data">
+                        <div>
+                            <h3>Kirti John</h3>
+                            <p>Inerior Designer</p>
+                        </div>
+                        <div>
+                            <a href="">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="teamMember">
+                    <img src="team3.jpeg" alt="Team Member 3">
+                    <div class="data">
+                        <div>
+                            <h3>Robert Fox</h3>
+                            <p>Media Manager</p>
+                        </div>
+                        <div>
+                            <a href="">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsLetterSection">
+            <div class="newsFlex">
+                <div class="newsContent">
+                    <h1>Subscribe To Our
+                        <br>
+                        NewsLetter
+                    </h1>
+                    <p>Subscribe to our email newsletter today to recieve updates on the latest news</p>
+                    <form action="#" method="post">
+                        <div>
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" autocomplete="off" required name="email" placeholder="Enter Your Email">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <button class="on" type="submit"
+                            style="width: 100%; margin-top: 20px; display: none">Subscribe</button>
+                    </form>
+                </div>
+                <div class="newsImg">
+                    <img src="newsletterimg.jpeg" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="logoHead">
+            <h1>
+                परंपरा
+                <span>.</span>
+            </h1>
+        </div>
+        <div class="footerFlex">
+            <div>
+                <h3>About</h3>
+                <a href="about.html">Our Company</a>
+                <a href="about.html">Our Story</a>
+            </div>
+            <div>
+                <h3>Information</h3>
+                <a href="">Privacy Policy</a>
+                <a href="">Terms & Conditions</a>
+                <a href="shop.html">Return</a>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <a href="">Contact Us</a>
+                <a href="">Help</a>
+                <a href="shop.html#faq">FAQ</a>
+            </div>
+        </div>
+        <div class="copyrightSec">
+            <p>Copyright&copy;2025 परंपरा. All Rights Reserved.</p>
+            <div class="socialMedia">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.slider-img').on('click', function () {
+                $('.slider-img').removeClass('act');
+                $(this).addClass('act');
+            })
+        });
+
+        AOS.init();
+        $('.faqAnsTwo').hide();
+        $('.faqAnsThree').hide();
+        $('.faqAnsFour').hide();
+        $('.faqAnsFive').hide();
+
+        $('.ques .shopOne').on('click', function () {
+            $('.shopOne i').toggleClass('bx-x')
+            $('.shopOne i').toggleClass('bx-right-arrow-alt');
+            $('.faqAnsOne').toggle('')
+        });
+        $('.ques .shopTwo').on('click', function () {
+            $('.shopTwo i').toggleClass('bx-x')
+            $('.faqAnsTwo').toggle('')
+        });
+        $('.ques .shopThree').on('click', function () {
+            $('.shopThree i').toggleClass('bx-x')
+            $('.faqAnsThree').toggle('')
+        });
+        $('.ques .shopFour').on('click', function () {
+            $('.shopFour i').toggleClass('bx-x')
+            $('.faqAnsFour').toggle('')
+        });
+        $('.ques .shopFive').on('click', function () {
+            $('.shopFive i').toggleClass('bx-x')
+            $('.faqAnsFive').toggle('')
+        });
+    </script>
+    <script>
+        let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+menuIcon.onclick = (e) => {
+    e.preventDefault();
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+}
+
+
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+
+            })
+        }
+    })
+}
+
+
+
+// REVIEW SECTION ANIMATIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+const dispValues = document.querySelectorAll('.num');
+let interval = 8000;
+
+dispValues.forEach((dispValue) => {
+    let startValue = 700;
+    let endValue = parseInt(dispValue.getAttribute('data-val'))
+    let value = parseInt(dispValue.textContent);
+    let duration = Math.floor(interval / endValue);
+    let counter = setInterval(() => {
+        startValue += 5;
+        dispValue.textContent = startValue;
+        if (startValue == endValue) {
+            clearInterval(counter);
+        }
+    }, duration)
+})
+
+
+
+// FEATURED SECTIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+const hideOne = document.querySelector('.hideOne');
+const hideTwo = document.querySelector('.hideTwo');
+const hideThree = document.querySelector('.hideThree');
+const clckOne = document.querySelector('.clckOne');
+const clckTwo = document.querySelector('.clckTwo');
+const clckThree = document.querySelector('.clckThree');
+const btNext = document.getElementById('btNext');
+const btPrev = document.getElementById('btPrev');
+
+const fadeOut = (element, callback) => {
+    element.style.opacity = '0';
+    element.style.transform = 'scale(0.8)';
+    setTimeout(() => {
+        element.style.display = 'none';
+        callback();
+    }, 300); // 300ms to match the CSS transition duration
+};
+
+const fadeIn = (element) => {
+    element.style.display = 'grid';
+    setTimeout(() => {
+        element.style.opacity = '1';
+        element.style.transform = 'scale(1)';
+    }, 50); // A small delay to ensure the display property has taken effect
+};
+
+const showHideContent = (toShow, toHide1, toHide2) => {
+    fadeOut(toHide1, () => {
+        fadeOut(toHide2, () => {
+            fadeIn(toShow);
+        });
+    });
+};
+
+const updateActiveDot = () => {
+    clckOne.classList.remove('actv');
+    clckTwo.classList.remove('actv');
+    clckThree.classList.remove('actv');
+    if (hideOne.style.display === 'grid') {
+        clckOne.classList.add('actv');
+    } else if (hideTwo.style.display === 'grid') {
+        clckTwo.classList.add('actv');
+    } else if (hideThree.style.display === 'grid') {
+        clckThree.classList.add('actv');
+    }
+};
+
+clckOne.addEventListener('click', () => {
+    showHideContent(hideThree, hideOne, hideTwo);
+    clckOne.classList.add('actv');
+    clckTwo.classList.remove('actv');
+    clckThree.classList.remove('actv');
+});
+
+clckTwo.addEventListener('click', () => {
+    showHideContent(hideOne, hideTwo, hideThree);
+    clckOne.classList.remove('actv');
+    clckTwo.classList.add('actv');
+    clckThree.classList.remove('actv');
+});
+
+clckThree.addEventListener('click', () => {
+    showHideContent(hideTwo, hideOne, hideThree);
+    clckOne.classList.remove('actv');
+    clckTwo.classList.remove('actv');
+    clckThree.classList.add('actv');
+});
+
+btNext.addEventListener('click', () => {
+    if (hideOne.style.display === 'grid') {
+        showHideContent(hideTwo, hideOne, hideThree);
+        clckOne.classList.remove('actv');
+        clckTwo.classList.add('actv');
+    } else if (hideTwo.style.display === 'grid') {
+        showHideContent(hideThree, hideOne, hideTwo);
+        clckTwo.classList.remove('actv');
+        clckThree.classList.add('actv');
+    } else if (hideThree.style.display === 'grid') {
+        showHideContent(hideOne, hideTwo, hideThree);
+        clckThree.classList.remove('actv');
+        clckOne.classList.add('actv');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// PRODUCTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+const bedRoom = document.querySelector('.bedRoom');
+const livingRoom = document.querySelector('.livingRoom');
+const diningRoom = document.querySelector('.diningRoom');
+const outDoor = document.querySelector('.outDoor');
+const inDoor = document.querySelector('.inDoor');
+
+const bR = document.querySelector('.bR');
+const lR = document.querySelector('.lR');
+const dR = document.querySelector('.dR');
+const oR = document.querySelector('.oR');
+const iR = document.querySelector('.iR');
+
+bR.addEventListener('click', () => {
+    bR.classList.add('now');
+    lR.classList.remove('now');
+    dR.classList.remove('now');
+    oR.classList.remove('now');
+    iR.classList.remove('now');
+    bedRoom.style.display = 'grid';
+    livingRoom.style.display = 'none';
+    diningRoom.style.display = 'none';
+    outDoor.style.display = 'none';
+    inDoor.style.display = 'none';
+});
+
+lR.addEventListener('click', () => {
+    bR.classList.remove('now');
+    lR.classList.add('now');
+    dR.classList.remove('now');
+    oR.classList.remove('now');
+    iR.classList.remove('now');
+    bedRoom.style.display = 'none';
+    livingRoom.style.display = 'grid';
+    diningRoom.style.display = 'none';
+    outDoor.style.display = 'none';
+    inDoor.style.display = 'none';
+});
+
+dR.addEventListener('click', () => {
+    bR.classList.remove('now');
+    lR.classList.remove('now');
+    dR.classList.add('now');
+    oR.classList.remove('now');
+    iR.classList.remove('now');
+    bedRoom.style.display = 'none';
+    livingRoom.style.display = 'none';
+    diningRoom.style.display = 'grid';
+    outDoor.style.display = 'none';
+    inDoor.style.display = 'none';
+});
+
+oR.addEventListener('click', () => {
+    bR.classList.remove('now');
+    lR.classList.remove('now');
+    dR.classList.remove('now');
+    oR.classList.add('now');
+    iR.classList.remove('now');
+    bedRoom.style.display = 'none';
+    livingRoom.style.display = 'none';
+    diningRoom.style.display = 'none';
+    outDoor.style.display = 'grid';
+    inDoor.style.display = 'none';
+});
+
+iR.addEventListener('click', () => {
+    bR.classList.remove('now');
+    lR.classList.remove('now');
+    dR.classList.remove('now');
+    oR.classList.remove('now');
+    iR.classList.add('now');
+    bedRoom.style.display = 'none';
+    livingRoom.style.display = 'none';
+    diningRoom.style.display = 'none';
+    outDoor.style.display = 'none';
+    inDoor.style.display = 'grid';
+});
+
+const drop = document.querySelector('.drop');
+const colon = document.querySelector('.hes');
+
+colon.addEventListener('click', () => {
+    drop.classList.toggle('sow');
+});
+    </script>
+</body>
+
+</html>
